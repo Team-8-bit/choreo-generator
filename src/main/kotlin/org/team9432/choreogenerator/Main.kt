@@ -1,6 +1,9 @@
 package org.team9432.choreogenerator
 
-import org.team9432.choreogenerator.json.ChoreoRobotConfiguration
+import org.team9432.choreogenerator.api.GeneratorFile
+import org.team9432.choreogenerator.api.GeneratorPath
+import org.team9432.choreogenerator.api.PoseWaypoint
+import org.team9432.choreogenerator.api.json.ChoreoRobotConfiguration
 import org.team9432.lib.unit.degrees
 import org.team9432.lib.unit.meters
 import java.io.File

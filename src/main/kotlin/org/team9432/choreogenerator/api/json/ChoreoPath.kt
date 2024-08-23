@@ -1,4 +1,4 @@
-package org.team9432.choreogenerator.json
+package org.team9432.choreogenerator.api.json
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

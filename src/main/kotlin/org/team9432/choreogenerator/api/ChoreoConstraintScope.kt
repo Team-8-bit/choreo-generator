@@ -1,4 +1,4 @@
-package org.team9432.choreogenerator
+package org.team9432.choreogenerator.api
 
 fun interface ChoreoConstraintScope {
     fun get(): String

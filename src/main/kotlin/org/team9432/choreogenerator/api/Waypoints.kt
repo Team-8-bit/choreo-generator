@@ -1,6 +1,6 @@
-package org.team9432.choreogenerator
+package org.team9432.choreogenerator.api
 
-import org.team9432.choreogenerator.json.ChoreoWaypoint
+import org.team9432.choreogenerator.api.json.ChoreoWaypoint
 import org.team9432.lib.unit.Angle
 import org.team9432.lib.unit.Length
 import org.team9432.lib.unit.inMeters

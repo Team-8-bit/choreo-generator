@@ -1,8 +1,8 @@
-package org.team9432.choreogenerator
+package org.team9432.choreogenerator.api
 
-import org.team9432.choreogenerator.json.ChoreoConstraint
-import org.team9432.choreogenerator.json.ChoreoPath
-import org.team9432.choreogenerator.json.ChoreoWaypoint
+import org.team9432.choreogenerator.api.json.ChoreoConstraint
+import org.team9432.choreogenerator.api.json.ChoreoPath
+import org.team9432.choreogenerator.api.json.ChoreoWaypoint
 
 class GeneratorPath(
     val name: String,
