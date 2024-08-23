@@ -5,7 +5,7 @@ plugins {
 }
 
 application {
-    mainClass = "org.team9432.choreogenerator.MainKt"
+    mainClass = "org.team9432.crescendo2024.MainKt"
 }
 
 group = "org.team9432"

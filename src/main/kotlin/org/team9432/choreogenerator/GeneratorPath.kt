@@ -1,8 +1,8 @@
-package org.team9432.choreogenerator.api
+package org.team9432.choreogenerator
 
-import org.team9432.choreogenerator.api.json.ChoreoConstraint
-import org.team9432.choreogenerator.api.json.ChoreoPath
-import org.team9432.choreogenerator.api.json.ChoreoWaypoint
+import org.team9432.choreogenerator.json.ChoreoConstraint
+import org.team9432.choreogenerator.json.ChoreoPath
+import org.team9432.choreogenerator.json.ChoreoWaypoint
 
 class GeneratorPath(
     val name: String,
@@ -21,8 +21,12 @@ class GeneratorPath(
         }
     }
 
-    fun addWaypoint(waypoint: GeneratorWaypoint) {
+    fun addWaypoint(waypoint: GeneratorWaypoint, stopPoint: Boolean = false) {
         waypoints.add(waypoint.toChoreoWaypoint())
+
+        if (stopPoint) {
+            addConstraint(StopPoint(ChoreoConstraintScope.atWaypoint(waypoints.lastIndex)))
+        }
     }
 
     fun addConstraint(constraint: GeneratorConstraint) {

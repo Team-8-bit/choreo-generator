@@ -1,9 +1,9 @@
-package org.team9432.choreogenerator.api
+package org.team9432.choreogenerator
 
 import kotlinx.serialization.json.Json
-import org.team9432.choreogenerator.api.json.ChoreoFile
-import org.team9432.choreogenerator.api.json.ChoreoPath
-import org.team9432.choreogenerator.api.json.ChoreoRobotConfiguration
+import org.team9432.choreogenerator.json.ChoreoFile
+import org.team9432.choreogenerator.json.ChoreoPath
+import org.team9432.choreogenerator.json.ChoreoRobotConfiguration
 
 private const val DOCUMENT_VERSION = "v0.4"
 

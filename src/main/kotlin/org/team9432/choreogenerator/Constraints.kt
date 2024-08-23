@@ -1,6 +1,6 @@
-package org.team9432.choreogenerator.api
+package org.team9432.choreogenerator
 
-import org.team9432.choreogenerator.api.json.ChoreoConstraint
+import org.team9432.choreogenerator.json.ChoreoConstraint
 
 interface GeneratorConstraint {
     fun toChoreoConstraint(): ChoreoConstraint
