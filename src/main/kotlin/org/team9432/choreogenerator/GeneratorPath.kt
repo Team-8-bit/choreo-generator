@@ -19,20 +19,22 @@ class GeneratorPath(
 
     init {
         if (includeDefaultConstraints) {
-            addConstraint(StopPoint(ChoreoConstraintScope.FIRST))
-            addConstraint(StopPoint(ChoreoConstraintScope.LAST))
+            addConstraint(StopPoint(ConstraintScope.FIRST))
+            addConstraint(StopPoint(ConstraintScope.LAST))
         }
     }
 
     fun addPoseWaypoint(position: Position, stopPoint: Boolean = false) = addWaypoint(position.asPoseWaypoint(), stopPoint)
     fun addTranslationWaypoint(position: Position, stopPoint: Boolean = false) = addWaypoint(position.asTranslationWaypoint(), stopPoint)
 
-    private fun addWaypoint(waypoint: GeneratorWaypoint, stopPoint: Boolean) {
+    private fun addWaypoint(waypoint: GeneratorWaypoint, stopPoint: Boolean): Int {
         waypoints.add(waypoint.toChoreoWaypoint())
 
         if (stopPoint) {
-            addConstraint(StopPoint(ChoreoConstraintScope.atWaypoint(waypoints.lastIndex)))
+            addConstraint(StopPoint(ConstraintScope.atWaypoint(waypoints.lastIndex)))
         }
+
+        return waypoints.lastIndex
     }
 
     fun addConstraint(constraint: GeneratorConstraint) {
