@@ -1,8 +1,8 @@
 package org.team9432.choreogenerator
 
 object ConstraintScope {
-    const val FIRST = "first"
-    const val LAST = "last"
-    fun atWaypoint(waypoint: Int) = waypoint.toString()
-    fun betweenWaypoints(waypoints: IntRange) = "${waypoints.first}, ${waypoints.last}"
+    val FIRST = listOf("first")
+    val LAST = listOf("last")
+    fun atWaypoint(waypoint: Int) = listOf(waypoint.toString())
+    fun betweenWaypoints(waypoints: IntRange) = listOf(waypoints.first.toString(), waypoints.last.toString())
 }

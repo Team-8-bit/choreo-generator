@@ -18,15 +18,9 @@ data class ChoreoConstraint(
 object ScopeSerializer: JsonTransformingSerializer<List<String>>(ListSerializer(String.serializer())) {
     // If response is not an array, then it is a single object that should be wrapped into the array
     override fun transformDeserialize(element: JsonElement): JsonElement =
-        (element as JsonArray).let { array ->
-            val it = array.first() as JsonPrimitive
-            JsonArray(listOf(JsonPrimitive(it.content)))
-        }
+        JsonArray((element as JsonArray).map { it as JsonPrimitive })
 
     override fun transformSerialize(element: JsonElement): JsonElement {
-        return (element as JsonArray).let { array ->
-            val it = array.first() as JsonPrimitive
-            JsonArray(listOf(it.intOrNull?.let { JsonPrimitive(it) } ?: JsonPrimitive(it.content)))
-        }
+        return JsonArray((element as JsonArray).map { it as JsonPrimitive }.map { scope -> scope.intOrNull?.let { JsonPrimitive(it) } ?: JsonPrimitive(scope.content) })
     }
 }

@@ -2,6 +2,8 @@ package org.team9432.crescendo2024
 
 import org.team9432.choreogenerator.GeneratorFile
 import org.team9432.choreogenerator.json.ChoreoRobotConfiguration
+import org.team9432.lib.unit.inMeters
+import org.team9432.lib.unit.inches
 import java.io.File
 
 val OSR2024Config = ChoreoRobotConfiguration(
@@ -10,11 +12,11 @@ val OSR2024Config = ChoreoRobotConfiguration(
     motorMaxTorque = 1.162295081967213,
     motorMaxVelocity = 4800,
     gearing = 5.9,
-    wheelbase = 0.5016497291091463,
-    trackWidth = 0.5016497291091463,
-    bumperLength = 0.8762995267982555,
-    bumperWidth = 0.8762995267982555,
-    wheelRadius = 0.048767973665294215
+    wheelbase = 13.75.inches.inMeters,
+    trackWidth = 19.75.inches.inMeters,
+    bumperLength = 25.75.inches.inMeters,
+    bumperWidth = 32.inches.inMeters,
+    wheelRadius = 1.92.inches.inMeters
 )
 
 fun main() {

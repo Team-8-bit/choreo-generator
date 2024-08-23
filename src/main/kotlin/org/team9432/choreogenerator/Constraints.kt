@@ -6,10 +6,10 @@ interface GeneratorConstraint {
     fun toChoreoConstraint(): ChoreoConstraint
 }
 
-data class StopPoint(val scope: String): GeneratorConstraint {
-    override fun toChoreoConstraint() = ChoreoConstraint(listOf(scope), "StopPoint")
+data class StopPoint(val scope: List<String>): GeneratorConstraint {
+    override fun toChoreoConstraint() = ChoreoConstraint(scope, "StopPoint")
 }
 
-data class StraightLine(val scope: String): GeneratorConstraint {
-    override fun toChoreoConstraint() = ChoreoConstraint(listOf(scope), "StraightLine")
+data class StraightLine(val scope: List<String>): GeneratorConstraint {
+    override fun toChoreoConstraint() = ChoreoConstraint(scope, "StraightLine")
 }
