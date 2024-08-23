@@ -1,6 +1,11 @@
 plugins {
     kotlin("jvm") version "2.0.0"
     kotlin("plugin.serialization") version "2.0.0"
+    application
+}
+
+application {
+    mainClass = "org.team9432.choreogenerator.MainKt"
 }
 
 group = "org.team9432"

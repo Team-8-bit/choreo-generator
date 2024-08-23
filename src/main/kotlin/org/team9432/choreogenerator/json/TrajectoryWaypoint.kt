@@ -1,9 +1,13 @@
-package json
+package org.team9432.choreogenerator.json
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Waypoint(
+data class TrajectoryWaypoint(
+    @SerialName("timestamp")
+    val timestamp: Double,
+    @SerialName("isStopPoint")
+    val isStopPoint: Boolean,
     @SerialName("x")
     val x: Double,
     @SerialName("y")

@@ -1,7 +1,7 @@
-package org.team9432
+package org.team9432.choreogenerator
 
-import json.ChoreoFile
 import kotlinx.serialization.json.Json
+import org.team9432.choreogenerator.json.ChoreoFile
 import java.io.File
 
 val serializer = Json {
