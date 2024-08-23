@@ -14,6 +14,9 @@ class GeneratorPath(
     private val waypoints = mutableListOf<ChoreoWaypoint>()
     private val constraints = mutableListOf<ChoreoConstraint>()
 
+    val startingPosition get() = waypoints.first().getPosition()
+    val endingPosition get() = waypoints.last().getPosition()
+
     init {
         if (includeDefaultConstraints) {
             addConstraint(StopPoint(ChoreoConstraintScope.FIRST))
@@ -21,7 +24,10 @@ class GeneratorPath(
         }
     }
 
-    fun addWaypoint(waypoint: GeneratorWaypoint, stopPoint: Boolean = false) {
+    fun addPoseWaypoint(position: Position, stopPoint: Boolean = false) = addWaypoint(position.asPoseWaypoint(), stopPoint)
+    fun addTranslationWaypoint(position: Position, stopPoint: Boolean = false) = addWaypoint(position.asTranslationWaypoint(), stopPoint)
+
+    private fun addWaypoint(waypoint: GeneratorWaypoint, stopPoint: Boolean) {
         waypoints.add(waypoint.toChoreoWaypoint())
 
         if (stopPoint) {

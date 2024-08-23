@@ -1,8 +1,7 @@
 package org.team9432.crescendo2024
 
-import org.team9432.lib.unit.Length
+import org.team9432.choreogenerator.Position
 import org.team9432.lib.unit.feet
-import org.team9432.lib.unit.inMeters
 import org.team9432.lib.unit.inches
 
 object FieldConstants {
@@ -29,18 +28,14 @@ object FieldConstants {
     /** Y spacing between center notes. */
     private val centerNoteYSpacing = 5.0.feet + 6.0.inches
 
-    val blueAmpSpikeNote = Coordinate(spikeNoteXCoordinate, centerY + (spikeNoteYSpacing * 2))
-    val blueCenterSpikeNote = Coordinate(spikeNoteXCoordinate, centerY + spikeNoteYSpacing)
-    val blueStageSpikeNote = Coordinate(spikeNoteXCoordinate, centerY)
-    val centerNoteOne = Coordinate(centerX, centerY + (centerNoteYSpacing * 2))
-    val centerNoteTwo = Coordinate(centerX, centerY + (centerNoteYSpacing * 1))
-    val centerNoteThree = Coordinate(centerX, centerY + (centerNoteYSpacing * 0))
-    val centerNoteFour = Coordinate(centerX, centerY + (centerNoteYSpacing * -1))
-    val centerNoteFive = Coordinate(centerX, centerY + (centerNoteYSpacing * -2))
+    val ampNote = Position(spikeNoteXCoordinate, centerY + (spikeNoteYSpacing * 2))
+    val speakerNote = Position(spikeNoteXCoordinate, centerY + spikeNoteYSpacing)
+    val stageNote = Position(spikeNoteXCoordinate, centerY)
+    val centerNoteOne = Position(centerX, centerY + (centerNoteYSpacing * 2))
+    val centerNoteTwo = Position(centerX, centerY + (centerNoteYSpacing * 1))
+    val centerNoteThree = Position(centerX, centerY + (centerNoteYSpacing * 0))
+    val centerNoteFour = Position(centerX, centerY + (centerNoteYSpacing * -1))
+    val centerNoteFive = Position(centerX, centerY + (centerNoteYSpacing * -2))
 
     val speakerYCoordinate = centerY + spikeNoteYSpacing
-
-    data class Coordinate(val x: Length, val y: Length) {
-        val isOnField get() = (x.inMeters >= 0 && x.inMeters <= lengthX.inMeters) && (y.inMeters >= 0 && y.inMeters <= lengthY.inMeters)
-    }
 }

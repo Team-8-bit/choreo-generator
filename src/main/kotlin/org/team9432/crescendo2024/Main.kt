@@ -1,11 +1,7 @@
 package org.team9432.crescendo2024
 
 import org.team9432.choreogenerator.GeneratorFile
-import org.team9432.choreogenerator.GeneratorPath
-import org.team9432.choreogenerator.PoseWaypoint
 import org.team9432.choreogenerator.json.ChoreoRobotConfiguration
-import org.team9432.lib.unit.degrees
-import org.team9432.lib.unit.meters
 import java.io.File
 
 val OSR2024Config = ChoreoRobotConfiguration(
@@ -28,6 +24,7 @@ fun main() {
     val file = GeneratorFile(OSR2024Config)
 
     file.addPath(FourNote.FourAndNothing)
+    file.addPath(FourNote.ReversedFourAndNothing)
 
     outputFile.writeText(file.export())
 }

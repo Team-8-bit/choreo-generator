@@ -20,10 +20,6 @@ class GeneratorFile(val robotConfiguration: ChoreoRobotConfiguration, private va
         paths[path.name] = path.build()
     }
 
-    fun addPaths(vararg paths: GeneratorPath) {
-        paths.forEach { addPath(it) }
-    }
-
     private companion object {
         val serializer = Json {
             prettyPrint = true
