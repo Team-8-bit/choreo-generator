@@ -38,4 +38,13 @@ object FieldConstants {
     val centerNoteFive = Position(centerX, centerY + (centerNoteYSpacing * -2))
 
     val speakerYCoordinate = centerY + spikeNoteYSpacing
+
+
+    enum class CloseNote {
+        AMP, SPEAKER, STAGE
+    }
+
+    enum class CenterNote {
+        ONE, TWO, THREE, FOUR, FIVE
+    }
 }

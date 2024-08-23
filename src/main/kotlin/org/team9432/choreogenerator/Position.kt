@@ -45,6 +45,14 @@ class Position(x: Length, y: Length, heading: Angle = 0.degrees) {
         return this
     }
 
+    fun move(x: Length = 0.meters, y: Length = 0.meters, heading: Angle = 0.degrees): Position {
+        this.x += x
+        this.y += y
+        this.heading += heading
+
+        return this
+    }
+
     fun moveX(distance: Length): Position {
         x += distance
         return this
