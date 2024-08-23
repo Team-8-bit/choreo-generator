@@ -3,7 +3,11 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Waypoint(
+data class ChoreoTrajectoryWaypoint(
+    @SerialName("timestamp")
+    val timestamp: Double,
+    @SerialName("isStopPoint")
+    val isStopPoint: Boolean,
     @SerialName("x")
     val x: Double,
     @SerialName("y")

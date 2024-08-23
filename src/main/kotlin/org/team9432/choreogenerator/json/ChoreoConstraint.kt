@@ -1,6 +1,5 @@
 package org.team9432.choreogenerator.json
 
-import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.builtins.ListSerializer
@@ -8,7 +7,7 @@ import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.*
 
 @Serializable
-data class Constraint(
+data class ChoreoConstraint(
     @SerialName("scope")
     @Serializable(with = ScopeSerializer::class)
     val scope: List<String>,
@@ -24,7 +23,6 @@ object ScopeSerializer: JsonTransformingSerializer<List<String>>(ListSerializer(
             JsonArray(listOf(JsonPrimitive(it.content)))
         }
 
-    @OptIn(ExperimentalSerializationApi::class)
     override fun transformSerialize(element: JsonElement): JsonElement {
         return (element as JsonArray).let { array ->
             val it = array.first() as JsonPrimitive

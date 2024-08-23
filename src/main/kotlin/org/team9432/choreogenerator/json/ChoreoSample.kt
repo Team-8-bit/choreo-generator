@@ -3,7 +3,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Sample(
+data class ChoreoSample(
     @SerialName("x")
     val x: Double,
     @SerialName("y")

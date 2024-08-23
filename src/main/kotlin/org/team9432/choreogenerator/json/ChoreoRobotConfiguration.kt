@@ -3,7 +3,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class RobotConfiguration(
+data class ChoreoRobotConfiguration(
     @SerialName("mass")
     val mass: Double,
     @SerialName("rotationalInertia")

@@ -7,9 +7,9 @@ data class ChoreoFile(
     @SerialName("version")
     val version: String,
     @SerialName("robotConfiguration")
-    val robotConfiguration: RobotConfiguration,
+    val robotConfiguration: ChoreoRobotConfiguration,
     @SerialName("paths")
-    val paths: Map<String, Path>,
+    val paths: Map<String, ChoreoPath>,
     @SerialName("splitTrajectoriesAtStopPoints")
     val splitTrajectoriesAtStopPoints: Boolean,
     @SerialName("usesObstacles")
