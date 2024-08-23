@@ -12,9 +12,11 @@ val OSR2024Config = ChoreoRobotConfiguration(
     motorMaxTorque = 1.162295081967213,
     motorMaxVelocity = 4800,
     gearing = 5.9,
-    wheelbase = 13.75.inches.inMeters,
+//    wheelbase = 13.75.inches.inMeters,
+    wheelbase = 19.75.inches.inMeters,
     trackWidth = 19.75.inches.inMeters,
-    bumperLength = 25.75.inches.inMeters,
+//    bumperLength = 25.75.inches.inMeters,
+    bumperLength = 32.inches.inMeters,
     bumperWidth = 32.inches.inMeters,
     wheelRadius = 1.92.inches.inMeters
 )
