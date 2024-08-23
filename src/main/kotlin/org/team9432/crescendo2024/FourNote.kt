@@ -1,9 +1,6 @@
 package org.team9432.crescendo2024
 
-import org.team9432.choreogenerator.ConstraintScope
-import org.team9432.choreogenerator.GeneratorPath
-import org.team9432.choreogenerator.Position
-import org.team9432.choreogenerator.StraightLine
+import org.team9432.choreogenerator.*
 import org.team9432.lib.unit.degrees
 import org.team9432.lib.unit.meters
 

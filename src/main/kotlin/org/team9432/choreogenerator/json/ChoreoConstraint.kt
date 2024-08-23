@@ -13,6 +13,8 @@ data class ChoreoConstraint(
     val scope: List<String>,
     @SerialName("type")
     val type: String,
+    @SerialName("velocity")
+    val velocity: Double? = null
 )
 
 object ScopeSerializer: JsonTransformingSerializer<List<String>>(ListSerializer(String.serializer())) {

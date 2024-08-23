@@ -13,3 +13,7 @@ data class StopPoint(val scope: List<String>): GeneratorConstraint {
 data class StraightLine(val scope: List<String>): GeneratorConstraint {
     override fun toChoreoConstraint() = ChoreoConstraint(scope, "StraightLine")
 }
+
+data class MaxVelocity(val scope: List<String>, val velocity: Double): GeneratorConstraint {
+    override fun toChoreoConstraint() = ChoreoConstraint(scope, "MaxVelocity", velocity = velocity)
+}
