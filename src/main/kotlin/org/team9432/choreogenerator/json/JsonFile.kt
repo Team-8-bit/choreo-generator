@@ -1,15 +1,16 @@
 package org.team9432.choreogenerator.json
+
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ChoreoFile(
+internal data class JsonFile(
     @SerialName("version")
     val version: String,
     @SerialName("robotConfiguration")
-    val robotConfiguration: ChoreoRobotConfiguration,
+    val robotConfiguration: JsonRobotConfiguration,
     @SerialName("paths")
-    val paths: Map<String, ChoreoPath>,
+    val paths: Map<String, JsonPath>,
     @SerialName("splitTrajectoriesAtStopPoints")
     val splitTrajectoriesAtStopPoints: Boolean,
     @SerialName("usesObstacles")

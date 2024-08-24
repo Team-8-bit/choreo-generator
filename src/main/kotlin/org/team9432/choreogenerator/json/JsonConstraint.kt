@@ -7,17 +7,17 @@ import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.*
 
 @Serializable
-data class ChoreoConstraint(
+internal data class JsonConstraint(
     @SerialName("scope")
     @Serializable(with = ScopeSerializer::class)
     val scope: List<String>,
     @SerialName("type")
     val type: String,
     @SerialName("velocity")
-    val velocity: Double? = null
+    val velocity: Double? = null,
 )
 
-object ScopeSerializer: JsonTransformingSerializer<List<String>>(ListSerializer(String.serializer())) {
+private object ScopeSerializer: JsonTransformingSerializer<List<String>>(ListSerializer(String.serializer())) {
     // If response is not an array, then it is a single object that should be wrapped into the array
     override fun transformDeserialize(element: JsonElement): JsonElement =
         JsonArray((element as JsonArray).map { it as JsonPrimitive })

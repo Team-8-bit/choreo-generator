@@ -3,15 +3,15 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ChoreoPath(
+internal data class JsonPath(
     @SerialName("waypoints")
-    val waypoints: List<ChoreoWaypoint>,
+    val waypoints: List<JsonChoreoWaypoint>,
     @SerialName("trajectory")
-    val samples: List<ChoreoSample>,
+    val samples: List<JsonSample>,
     @SerialName("trajectoryWaypoints")
-    val trajectoryWaypoints: List<ChoreoTrajectoryWaypoint>,
+    val trajectoryWaypoints: List<JsonTrajectoryWaypoint>,
     @SerialName("constraints")
-    val constraints: List<ChoreoConstraint>,
+    val constraints: List<JsonConstraint>,
     @SerialName("usesControlIntervalGuessing")
     val usesControlIntervalGuessing: Boolean,
     @SerialName("defaultControlIntervalCount")

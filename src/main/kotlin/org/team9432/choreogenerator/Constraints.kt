@@ -1,19 +1,20 @@
 package org.team9432.choreogenerator
 
-import org.team9432.choreogenerator.json.ChoreoConstraint
+import org.team9432.choreogenerator.json.JsonConstraint
 
-interface GeneratorConstraint {
-    fun toChoreoConstraint(): ChoreoConstraint
+abstract class ChoreoConstraint {
+    abstract val scope: ConstraintScope
+    internal abstract fun toJsonConstraint(): JsonConstraint
 }
 
-data class StopPoint(val scope: List<String>): GeneratorConstraint {
-    override fun toChoreoConstraint() = ChoreoConstraint(scope, "StopPoint")
+data class StopPoint(override val scope: ConstraintScope): ChoreoConstraint() {
+    override fun toJsonConstraint() = JsonConstraint(scope.elements, "StopPoint")
 }
 
-data class StraightLine(val scope: List<String>): GeneratorConstraint {
-    override fun toChoreoConstraint() = ChoreoConstraint(scope, "StraightLine")
+data class StraightLine(override val scope: ConstraintScope): ChoreoConstraint() {
+    override fun toJsonConstraint() = JsonConstraint(scope.elements, "StraightLine")
 }
 
-data class MaxVelocity(val scope: List<String>, val velocity: Double): GeneratorConstraint {
-    override fun toChoreoConstraint() = ChoreoConstraint(scope, "MaxVelocity", velocity = velocity)
+data class MaxVelocity(override val scope: ConstraintScope, val velocity: Double): ChoreoConstraint() {
+    override fun toJsonConstraint() = JsonConstraint(scope.elements, "MaxVelocity", velocity = velocity)
 }

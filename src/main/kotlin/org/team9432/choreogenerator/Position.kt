@@ -1,5 +1,6 @@
 package org.team9432.choreogenerator
 
+import org.team9432.choreogenerator.json.JsonChoreoWaypoint
 import org.team9432.lib.unit.*
 import kotlin.math.atan2
 import kotlin.math.hypot
@@ -76,4 +77,7 @@ class Position(x: Length, y: Length, heading: Angle = 0.degrees) {
     }
 
     fun copy() = Position(x, y, heading)
+
 }
+
+internal fun JsonChoreoWaypoint.getPosition() = Position(x.meters, y.meters, heading.radians)

@@ -1,9 +1,10 @@
 package org.team9432.choreogenerator.json
+
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ChoreoRobotConfiguration(
+internal data class JsonRobotConfiguration(
     @SerialName("mass")
     val mass: Double,
     @SerialName("rotationalInertia")

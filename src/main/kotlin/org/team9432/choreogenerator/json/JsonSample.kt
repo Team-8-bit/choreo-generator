@@ -1,9 +1,10 @@
 package org.team9432.choreogenerator.json
+
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ChoreoSample(
+internal data class JsonSample(
     @SerialName("x")
     val x: Double,
     @SerialName("y")

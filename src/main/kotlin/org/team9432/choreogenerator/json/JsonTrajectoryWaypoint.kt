@@ -1,12 +1,14 @@
 package org.team9432.choreogenerator.json
+
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.team9432.choreogenerator.Position
-import org.team9432.lib.unit.meters
-import org.team9432.lib.unit.radians
 
 @Serializable
-data class ChoreoWaypoint(
+internal data class JsonTrajectoryWaypoint(
+    @SerialName("timestamp")
+    val timestamp: Double,
+    @SerialName("isStopPoint")
+    val isStopPoint: Boolean,
     @SerialName("x")
     val x: Double,
     @SerialName("y")
@@ -21,6 +23,4 @@ data class ChoreoWaypoint(
     val headingConstrained: Boolean,
     @SerialName("controlIntervalCount")
     val controlIntervalCount: Int,
-) {
-    fun getPosition() = Position(x.meters, y.meters, heading.radians)
-}
+)
