@@ -39,12 +39,27 @@ object FieldConstants {
 
     val speakerYCoordinate = centerY + spikeNoteYSpacing
 
+    fun getNotePose(note: CloseNote) = when (note) {
+        CloseNote.AMP -> ampNote
+        CloseNote.SPEAKER -> speakerNote
+        CloseNote.STAGE -> stageNote
+    }
+
+    fun getNotePose(note: CenterNote) = when (note) {
+        CenterNote.ONE -> centerNoteOne
+        CenterNote.TWO -> centerNoteTwo
+        CenterNote.THREE -> centerNoteThree
+        CenterNote.FOUR -> centerNoteFour
+        CenterNote.FIVE -> centerNoteFive
+    }
 
     enum class CloseNote {
-        AMP, SPEAKER, STAGE
+        AMP, SPEAKER, STAGE;
+        val readableName = name.lowercase().replaceFirstChar { it.uppercase() }
     }
 
     enum class CenterNote {
-        ONE, TWO, THREE, FOUR, FIVE
+        ONE, TWO, THREE, FOUR, FIVE;
+        val readableName = name.lowercase().replaceFirstChar { it.uppercase() }
     }
 }

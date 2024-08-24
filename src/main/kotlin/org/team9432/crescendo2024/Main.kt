@@ -27,8 +27,7 @@ fun main() {
 
     val file = GeneratorFile(OSR2024Config)
 
-    file.addPath(FourNote.FourAndNothing)
-    file.addPath(FourNote.ReversedFourAndNothing)
+    FourNote.getAllPossibilities().forEach { file.addPath(it) }
 
     outputFile.writeText(file.export())
 }

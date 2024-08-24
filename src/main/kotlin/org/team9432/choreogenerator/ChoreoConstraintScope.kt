@@ -4,5 +4,5 @@ object ConstraintScope {
     val FIRST = listOf("first")
     val LAST = listOf("last")
     fun atWaypoint(waypoint: Int) = listOf(waypoint.toString())
-    fun betweenWaypoints(waypoints: IntRange) = listOf(waypoints.first.toString(), waypoints.last.toString())
+    fun betweenWaypoints(first: Int, last: Int) = listOf(first.toString(), last.toString())
 }
