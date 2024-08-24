@@ -1,6 +1,5 @@
 package org.team9432.choreogenerator
 
-import org.team9432.crescendo2024.FieldConstants
 import org.team9432.lib.unit.*
 import kotlin.math.atan2
 import kotlin.math.hypot
@@ -16,9 +15,6 @@ class Position(x: Length, y: Length, heading: Angle = 0.degrees) {
 
     var heading: Angle = heading
         private set
-
-
-    val isValidOnField get() = (x.inMeters >= 0 && x.inMeters <= FieldConstants.lengthX.inMeters) && (y.inMeters >= 0 && y.inMeters <= FieldConstants.lengthY.inMeters)
 
     fun pointAt(other: Position): Position {
         heading = atan2(other.y.inMeters - this.y.inMeters, other.x.inMeters - this.x.inMeters).radians
