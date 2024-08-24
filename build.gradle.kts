@@ -15,6 +15,8 @@ repositories {
 }
 
 dependencies {
+    implementation("org.team9432.lib:robot-lib")
+
     testImplementation(kotlin("test"))
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
 
