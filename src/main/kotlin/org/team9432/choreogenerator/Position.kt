@@ -2,9 +2,10 @@ package org.team9432.choreogenerator
 
 import org.team9432.crescendo2024.FieldConstants
 import org.team9432.lib.unit.*
-import java.lang.Math.clamp
 import kotlin.math.atan2
 import kotlin.math.hypot
+import kotlin.math.max
+import kotlin.math.min
 
 class Position(x: Length, y: Length, heading: Angle = 0.degrees) {
     var x: Length = x
@@ -71,6 +72,8 @@ class Position(x: Length, y: Length, heading: Angle = 0.degrees) {
     private fun interpolateDouble(startValue: Double, endValue: Double, t: Double): Double {
         return startValue + (endValue - startValue) * clamp(t, 0.0, 1.0)
     }
+
+    private fun clamp(value: Double, low: Double, high: Double) = max(low, min(value, high))
 
     fun distanceTo(other: Position): Length {
         return hypot(other.x.inMeters - this.x.inMeters, other.y.inMeters - this.y.inMeters).meters
