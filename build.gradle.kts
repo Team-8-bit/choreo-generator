@@ -8,8 +8,7 @@ application {
     mainClass = "org.team9432.crescendo2024.MainKt"
 }
 
-group = "org.team9432"
-version = "1.0-SNAPSHOT"
+group = "org.team9432.lib"
 
 repositories {
     mavenCentral()
