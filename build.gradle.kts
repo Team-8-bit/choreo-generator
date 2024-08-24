@@ -1,11 +1,6 @@
 plugins {
-    kotlin("jvm") version "2.0.0"
-    kotlin("plugin.serialization") version "2.0.0"
-    application
-}
-
-application {
-    mainClass = "org.team9432.crescendo2024.MainKt"
+    kotlin("jvm")
+    kotlin("plugin.serialization")
 }
 
 group = "org.team9432.lib"
@@ -18,12 +13,22 @@ dependencies {
     implementation("org.team9432.lib:robot-lib")
 
     testImplementation(kotlin("test"))
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
-
-    testImplementation(kotlin("test", "2.0.0"))
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1")
 }
 
 tasks.test {
     useJUnitPlatform()
+}
+
+repositories {
+    mavenCentral()
+    maven { setUrl("https://frcmaven.wpi.edu/artifactory/release/") }
+    maven { setUrl("https://plugins.gradle.org/m2/") }
+    maven { setUrl("https://maven.ctr-electronics.com/release/") }
+    maven { setUrl("https://maven.revrobotics.com/") }
+    maven { setUrl("https://maven.photonvision.org/repository/internal") }
+    maven { setUrl("https://maven.photonvision.org/repository/snapshots") }
+    maven { setUrl("https://jitpack.io") }
+    maven { setUrl("https://SleipnirGroup.github.io/ChoreoLib/dep") }
 }
