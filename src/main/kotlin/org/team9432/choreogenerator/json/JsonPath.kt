@@ -23,5 +23,5 @@ internal data class JsonPath(
     @SerialName("eventMarkers")
     val eventMarkers: List<Nothing>,
     @SerialName("isTrajectoryStale")
-    val isTrajectoryStale: Boolean,
+    var isTrajectoryStale: Boolean,
 )

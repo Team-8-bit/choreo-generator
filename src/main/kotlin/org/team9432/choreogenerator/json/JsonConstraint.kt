@@ -18,11 +18,9 @@ internal data class JsonConstraint(
 )
 
 private object ScopeSerializer: JsonTransformingSerializer<List<String>>(ListSerializer(String.serializer())) {
-    // If response is not an array, then it is a single object that should be wrapped into the array
     override fun transformDeserialize(element: JsonElement): JsonElement =
-        JsonArray((element as JsonArray).map { it as JsonPrimitive })
+        JsonArray((element as JsonArray).map { JsonPrimitive((it as JsonPrimitive).content) })
 
-    override fun transformSerialize(element: JsonElement): JsonElement {
-        return JsonArray((element as JsonArray).map { it as JsonPrimitive }.map { scope -> scope.intOrNull?.let { JsonPrimitive(it) } ?: JsonPrimitive(scope.content) })
-    }
+    override fun transformSerialize(element: JsonElement): JsonElement =
+        JsonArray((element as JsonArray).map { it as JsonPrimitive }.map { scope -> scope.intOrNull?.let { JsonPrimitive(it) } ?: JsonPrimitive(scope.content) })
 }
