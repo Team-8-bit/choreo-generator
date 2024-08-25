@@ -3,18 +3,25 @@ package org.team9432.choreogenerator
 import org.team9432.choreogenerator.json.JsonConstraint
 
 abstract class ChoreoConstraint {
-    abstract val scope: ConstraintScope
-    internal abstract fun toJsonConstraint(): JsonConstraint
+    internal abstract val jsonConstraint: JsonConstraint
 }
 
-data class StopPoint(override val scope: ConstraintScope): ChoreoConstraint() {
-    override fun toJsonConstraint() = JsonConstraint(scope.elements, "StopPoint")
+data class StopPoint(val waypoint: Int): ChoreoConstraint() {
+    override val jsonConstraint = JsonConstraint(setOf(waypoint.toString()), "StopPoint")
 }
 
-data class StraightLine(override val scope: ConstraintScope): ChoreoConstraint() {
-    override fun toJsonConstraint() = JsonConstraint(scope.elements, "StraightLine")
+data object InitialStopPoint: ChoreoConstraint() {
+    override val jsonConstraint = JsonConstraint(setOf("first"), "StopPoint")
 }
 
-data class MaxVelocity(override val scope: ConstraintScope, val velocity: Double): ChoreoConstraint() {
-    override fun toJsonConstraint() = JsonConstraint(scope.elements, "MaxVelocity", velocity = velocity)
+data object FinalStopPoint: ChoreoConstraint() {
+    override val jsonConstraint = JsonConstraint(setOf("last"), "StopPoint")
+}
+
+data class StraightLine(val startWaypoint: Int, val endWaypoint: Int = startWaypoint): ChoreoConstraint() {
+    override val jsonConstraint = JsonConstraint(setOf(startWaypoint.toString(), endWaypoint.toString()), "StraightLine")
+}
+
+data class MaxVelocity(val startWaypoint: Int, val endWaypoint: Int = startWaypoint, val velocity: Double): ChoreoConstraint() {
+    override val jsonConstraint = JsonConstraint(setOf(startWaypoint.toString(), endWaypoint.toString()), "MaxVelocity", velocity = velocity)
 }

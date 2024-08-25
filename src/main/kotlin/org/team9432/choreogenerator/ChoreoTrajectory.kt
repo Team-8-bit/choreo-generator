@@ -21,8 +21,8 @@ class ChoreoTrajectory private constructor(
             val trajectory = ChoreoTrajectoryBuilder(name, usesControlIntervalGuessing, defaultControlIntervalCount, usesDefaultFieldObstacles)
             trajectory.block()
             if (includeDefaultConstraints) {
-                trajectory.addConstraint(StopPoint(ConstraintScope.FIRST))
-                trajectory.addConstraint(StopPoint(ConstraintScope.LAST))
+                trajectory.addConstraint(InitialStopPoint)
+                trajectory.addConstraint(FinalStopPoint)
             }
 
             return trajectory.build()
@@ -33,7 +33,7 @@ class ChoreoTrajectory private constructor(
         waypoints = waypoints.map { it.jsonWaypoint },
         samples = emptyList(),
         trajectoryWaypoints = emptyList(),
-        constraints = constraints.map { it.toJsonConstraint() },
+        constraints = constraints.map { it.jsonConstraint },
         usesControlIntervalGuessing = usesControlIntervalGuessing,
         defaultControlIntervalCount = defaultControlIntervalCount,
         usesDefaultFieldObstacles = usesDefaultFieldObstacles,
@@ -56,12 +56,13 @@ class ChoreoTrajectory private constructor(
 
         private fun addWaypoint(waypoint: ChoreoWaypoint, stopPoint: Boolean): Int {
             waypoints.add(waypoint)
+            val waypointIndex = waypoints.lastIndex
 
             if (stopPoint) {
-                addConstraint(StopPoint(ConstraintScope.atWaypoint(waypoints.lastIndex)))
+                addConstraint(StopPoint(waypointIndex))
             }
 
-            return waypoints.lastIndex
+            return waypointIndex
         }
 
         fun addConstraint(constraint: ChoreoConstraint) {

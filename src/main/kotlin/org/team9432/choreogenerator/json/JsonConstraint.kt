@@ -2,7 +2,7 @@ package org.team9432.choreogenerator.json
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.builtins.ListSerializer
+import kotlinx.serialization.builtins.SetSerializer
 import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.*
 
@@ -10,14 +10,14 @@ import kotlinx.serialization.json.*
 internal data class JsonConstraint(
     @SerialName("scope")
     @Serializable(with = ScopeSerializer::class)
-    val scope: List<String>,
+    val scope: Set<String>,
     @SerialName("type")
     val type: String,
     @SerialName("velocity")
     val velocity: Double? = null,
 )
 
-private object ScopeSerializer: JsonTransformingSerializer<List<String>>(ListSerializer(String.serializer())) {
+private object ScopeSerializer: JsonTransformingSerializer<Set<String>>(SetSerializer(String.serializer())) {
     override fun transformDeserialize(element: JsonElement): JsonElement =
         JsonArray((element as JsonArray).map { JsonPrimitive((it as JsonPrimitive).content) })
 
