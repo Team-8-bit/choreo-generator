@@ -15,6 +15,8 @@ internal data class JsonConstraint(
     val type: String,
     @SerialName("velocity")
     val velocity: Double? = null,
+    @SerialName("angular_velocity")
+    val angularVelocity: Double? = null,
 )
 
 private object ScopeSerializer: JsonTransformingSerializer<Set<String>>(SetSerializer(String.serializer())) {

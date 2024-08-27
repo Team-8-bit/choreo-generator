@@ -25,3 +25,7 @@ data class StraightLine(val startWaypoint: Int, val endWaypoint: Int = startWayp
 data class MaxVelocity(val startWaypoint: Int, val endWaypoint: Int = startWaypoint, val velocity: Double): ChoreoConstraint() {
     override val jsonConstraint = JsonConstraint(setOf(startWaypoint.toString(), endWaypoint.toString()), "MaxVelocity", velocity = velocity)
 }
+
+data class MaxAngVelocity(val startWaypoint: Int, val endWaypoint: Int = startWaypoint, val angularVelocity: Double): ChoreoConstraint() {
+    override val jsonConstraint = JsonConstraint(setOf(startWaypoint.toString(), endWaypoint.toString()), "MaxAngularVelocity", velocity = angularVelocity)
+}
