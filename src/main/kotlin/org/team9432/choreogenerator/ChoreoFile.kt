@@ -115,6 +115,10 @@ class ChoreoFile(private val file: File, val robotConfiguration: ChoreoRobotConf
         paths[path.name] = path.getJsonPath()
     }
 
+    fun addPaths(paths: Collection<ChoreoTrajectory>) {
+        paths.forEach { addPath(it) }
+    }
+
     private companion object {
         val serializer = Json {
             prettyPrint = true
