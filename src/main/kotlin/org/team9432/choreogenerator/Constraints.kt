@@ -22,6 +22,10 @@ data object FinalStopPoint: ChoreoConstraint() {
     override val jsonConstraint = JsonConstraint(setOf("last"), "StopPoint")
 }
 
+data class WholePathMaxVeloticy(val velocity: Double): ChoreoConstraint() {
+    override val jsonConstraint = JsonConstraint(setOf("first", "last"), "MaxVelocity", velocity = velocity)
+}
+
 data class StraightLine(val startWaypoint: Int, val endWaypoint: Int = startWaypoint): ChoreoConstraint() {
     override val jsonConstraint = JsonConstraint(setOf(startWaypoint.toString(), endWaypoint.toString()), "StraightLine")
 }
